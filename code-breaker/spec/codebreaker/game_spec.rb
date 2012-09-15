@@ -16,5 +16,15 @@ module Codebreaker
                 game.start('1234')
             end
         end
+
+        describe "#guess" do
+            context "with no matches" do
+                it "sends a mark with ''" do
+                    game.start('1234')
+                    output.should_receive(:puts).with('')
+                    game.guess('5555')
+                end
+            end
+        end
     end
 end
